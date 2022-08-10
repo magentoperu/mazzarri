@@ -1,0 +1,95 @@
+/* Custom Data 2022-03-22 02:45:33: Do not change this file. */
+
+:root{
+	/* Page Width */
+	
+	/* Body Font */
+		--font-family-name__base: 'Poppins', sans-serif;
+			--font-size__base: 16px;
+			--text-weight: 400;
+	
+	/* Heading Font */
+				--heading__font-weight__base: 700;
+		
+	/* Menu Font */
+				--naviation-level0-item__font-size: 15px;
+			--navigation-level0-item__font-weight: 500;
+			
+	/* Other Font */
+		--other_font_family: 'Libre Baskerville', sans-serif;
+	
+	/* Theme Colors */
+		--theme__color__primary: #96B416; 
+	
+	/* Basic Colors */
+		
+	
+	/* Buttons Colors */
+		--button__border-radius: 0pxpx;
+		
+	/* Custom Sticky Background Color */
+	
+	/* Custom Header */
+						
+	/* Custom Footer */
+			--footer-links-color: #999999;
+			
+	/* Custom Menu */
+	
+	/* Page wraper */
+	}
+
+
+/* Icon LazyLoad */
+img.lazyload,
+img.lazyloading,
+img.swatch-option-loading,
+.data-bgset-image-wrapper.lazyload:after,
+.data-bgset-image-wrapper.lazyloading:after{
+	background-image: url("//azexchangeclub.com/kalles/media/blueskytechco/lazyload/default/loading.gif");}
+
+
+/* Custom Header */
+header.page-header{
+	}
+
+
+
+/* Custom Footer */
+footer.page-footer{
+	}
+
+
+
+
+
+
+/* Customization Style */
+:root{
+  --product_item-size: 17.5px;
+}
+product-item-name,.product-item .product-item-name{
+      font-weight: 600;
+      letter-spacing: 0.5px;
+}
+.elementor-newsletter-wrapper button{
+  background: var(--theme__color__primary);
+  border-color : var(--theme__color__primary);
+}
+.elementor-newsletter-wrapper .form-subscribe{
+  padding: 0;
+}
+.page-footer{
+  --heading__color__base:#fff;
+}
+h1, h2, h3, h4, h5, h6, .h3, .elementor__heading  p{
+  letter-spacing: 0.5px;
+}
+@media (min-width: 1200px){
+  [class*="page-layout-2columns"] :not(.section-product) .products-grid .product-items:not(.container-products-masonry,.container-products-packery, .widget-product-countdown-timers-grid) .product-item{
+    width: 33.333%;
+  }
+  *[class*="page-layout-2columns"] .toolbar:not(:last-child) .grid-mode-show-type-products > a.grid-mode-4{
+    display: none;
+  }
+}

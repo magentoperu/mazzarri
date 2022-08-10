@@ -1,0 +1,125 @@
+/* Custom Data 2022-03-23 14:33:31: Do not change this file. */
+
+:root{
+	/* Page Width */
+	
+	/* Body Font */
+		--font-family-name__base: 'Lato', sans-serif;
+			--font-size__base: 14px;
+			--text-weight: 400;
+	
+	/* Heading Font */
+			--heading__font-family__base: 'sans-serif', sans-serif;
+			--heading__font-weight__base: 600;
+		
+	/* Menu Font */
+			--navigation-level0-item__font-family:  'Lato', sans-serif;
+			--naviation-level0-item__font-size: 14px;
+			--navigation-level0-item__font-weight: 400;
+			
+	/* Other Font */
+		--other_font_family: 'Libre Baskerville', sans-serif;
+	
+	/* Theme Colors */
+		--theme__color__primary: #5FBD74; 
+	
+	/* Basic Colors */
+			--text__color: #222222;
+			--heading__color__base: #222222;
+			--link__color: #5FBD74;
+			--link__hover__color: #5FBD74;
+			
+	
+	/* Buttons Colors */
+		
+	/* Custom Sticky Background Color */
+	
+	/* Custom Header */
+						
+	/* Custom Footer */
+			--footer-links-color: #878787;
+			--footer__background-color: #F6F6F8;
+		
+	/* Custom Menu */
+	
+	/* Page wraper */
+	}
+
+
+/* Icon LazyLoad */
+img.lazyload,  
+img.lazyloading,
+img.swatch-option-loading,
+.data-bgset-image-wrapper.lazyload:after,
+.data-bgset-image-wrapper.lazyloading:after{
+	background-image: url("//azexchangeclub.com/kalles/media/blueskytechco/lazyload/stores/19/organic.gif");}
+
+
+/* Custom Header */
+header.page-header{
+	}
+
+
+
+/* Custom Footer */
+footer.page-footer{
+	}
+
+
+
+
+
+
+/* Customization Style */
+root{
+  --lazyload_bg_size: 70px;
+}
+
+.header-container.layout-3{
+  --layout__max-width: 100%;
+}
+
+.header-container.layout-3 .container{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.product-item-name{
+  font-family: var(--heading__font-family__base);
+}
+#html-body [data-pb-style=VTXAWV6]{
+      background: #f6f6f8;
+}
+#html-body [data-pb-style=FMX672W]{
+      background-color: #fff;
+}
+.product-item-name > a{
+      font-size: 19px;
+      font-family: var(--heading__font-family__base);
+}
+.price-container .price{
+  font-size: 18px;
+}
+div .slick-prev, div .slick-next, div .slick-next:not(.primary),
+ div .slick-prev:not(.primary),
+  div .fotorama__arr .fotorama__arr__arr{
+       background: var(--theme__color__primary);
+    border-color: var(--theme__color__primary);
+ }
+div .slick-prev::before, div .slick-next::before,
+ div .slick-next:not(.primary)::before,
+  div .slick-prev:not(.primary)::before{
+    color:#fff;
+  }
+
+.container-sold-salable-quantity .container-sold-number {
+    display: flex;
+    justify-content: space-between;
+}
+@media (min-width: 1200px){
+  [class*="page-layout-2columns"] :not(.section-product) .products-grid .product-items:not(.container-products-masonry,.container-products-packery, .widget-product-countdown-timers-grid) .product-item{
+    width: 33.333%;
+  }
+  *[class*="page-layout-2columns"] .toolbar:not(:last-child) .grid-mode-show-type-products > a.grid-mode-4{
+    display: none;
+  }
+}

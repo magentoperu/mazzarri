@@ -1,0 +1,67 @@
+/* Custom Theme 2022-01-27 08:46:10: Do not change this file. */
+
+/* Page Width */
+
+/* Body Font */
+body {
+		font-size: 14px; 
+			font-weight: 400; 
+			font-family: Poppins, sans-serif;
+	}
+button, .cart.table-wrapper .actions-toolbar > .action, .action-gift,
+.action.primary, .action-primary, .btn,{
+		font-family: Poppins, sans-serif;
+	}
+	/* Heading Font Weight*/
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	.blueskytechco-onepagecheckout .step-title,
+	.blueskytechco-onepagecheckout #opc-sidebar .title,
+	.super-deal .super-deal-banner-content .super-deal-countdown .number,
+	.super-deal .item-deal-product .info-price-deal label,
+	.wrapper_sub_category_tabs .widget-tabs ul > ul > li > a,
+	.super-deal-banner .super-deal-banner-content .super-deal-countdown .number,
+	.super-deal .item-deal-product .info-price-deal label,
+	.wrapper_sub_category_tabs .widget-tabs ul > ul > li > a,
+	.customer-account-create .form-create-account .fieldset:not(.additional_info) .legend,
+	.customer-account-forgotpassword .forget .fieldset:not(.additional_info) .legend,
+	.modal-popup .modal-title,
+	b, strong,
+	.cart-totals .grand .amount strong, .opc-block-summary .table-totals .grand .amount strong,
+	.cart-totals .grand .amount strong, .opc-block-summary .table-totals .grand .amount strong,
+	.block-minicart .amount .price-wrapper:first-child .price,
+	.searchsuite-autocomplete ul li .qs-option-info .qs-option-price,
+	th {
+		font-weight: 600; 
+	}
+/* Menu Font Weight*/
+.navigation.custommenu li.level0 .level-top,
+.navigation li.level0.parent .submenu .mega-columns .level1.parent > a{
+		font-weight: 400; 
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Newsletter popup */
+	#newsletter_pop_up{
+	width: 530px;height: 568px;background-color: ##FFFFFF;	}
+	#newsletter_pop_up .col-img-bg-pupup{ 
+		background-image: url(http://azexchangeclub.com/kalles/media/blueskytechco/newsletter/background/default/banner5_540x.jpeg); background-size: cover; background-position: center;	}
+.col-img-bg-pupup{
+	}

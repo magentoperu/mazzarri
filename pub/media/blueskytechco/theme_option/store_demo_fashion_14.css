@@ -1,0 +1,78 @@
+/* Custom Data 2022-03-23 13:46:00: Do not change this file. */
+
+:root{
+	/* Page Width */
+		--layout__max-width: 1400px;
+	
+	/* Body Font */
+		--font-family-name__base: 'Inter', sans-serif;
+			--font-size__base: 14px;
+			--text-weight: 400;
+	
+	/* Heading Font */
+	
+	/* Menu Font */
+		
+	/* Other Font */
+		--other_font_family: 'Libre Baskerville', sans-serif;
+	
+	/* Theme Colors */
+		--theme__color__primary: #FD4014; 
+	
+	/* Basic Colors */
+			--text__color: #696969;
+			--heading__color__base: #222222;
+			--link__color: #FD4014;
+			--link__hover__color: #FD4014;
+			
+	
+	/* Buttons Colors */
+		--button__border-radius: 0pxpx;
+		
+	/* Custom Sticky Background Color */
+	
+	/* Custom Header */
+						
+	/* Custom Footer */
+	
+	/* Custom Menu */
+	
+	/* Page wraper */
+	}
+
+
+/* Icon LazyLoad */
+img.lazyload,  
+img.lazyloading,
+img.swatch-option-loading,
+.data-bgset-image-wrapper.lazyload:after,
+.data-bgset-image-wrapper.lazyloading:after{
+	background-image: url("//azexchangeclub.com/kalles/media/blueskytechco/lazyload/stores/5/loading1_1.gif");}
+
+
+/* Custom Header */
+header.page-header{
+	}
+
+
+
+
+
+
+
+
+
+/* Customization Style */
+.other-font{
+  font-style: itatic;
+}
+:root{
+  --navigation-level0-item__text-transform: uppercase;
+}
+.elementor-newsletter-wrapper .form-subscribe{
+  padding: 0;
+}
+.pin-icon-style2 .lookbook-icon > a span{
+  background: var(--theme__color__primary);
+  border-color: var(--theme__color__primary);
+}

@@ -1,0 +1,23 @@
+<?php 
+?>
+<div class="product-information-buttons">
+    <a href="#delivery-return" class="open-popup-delivery"><?php /* @escapeNotVerified */ echo __('Delivery & Return') ?></a>
+</div>
+<div id="delivery-return" class="mfp-with-anim white-popup ajax_pp_popup mfp-hide delivery-return">
+    <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('delivery_product')->toHtml(); ?>
+</div>
+<script>
+	require(['jquery',
+        'Blueskytechco_QuickviewProduct/js/model/jquery.magnific-popup.min',
+		], function ($, magnificPopup) {
+		$( document ).ready(function() {
+            $('.open-popup-delivery').magnificPopup({
+                type:'inline',
+                midClick: true,
+                removalDelay: 500,
+                mainClass: 'mfp-zoom-in'
+            });
+        });
+    });
+</script>
+

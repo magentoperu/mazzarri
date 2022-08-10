@@ -1,0 +1,84 @@
+/* Custom Data 2022-03-22 02:45:33: Do not change this file. */
+
+:root{
+	/* Page Width */
+	
+	/* Body Font */
+		--font-family-name__base: 'Futura', sans-serif;
+			--font-size__base: 14px;
+			--text-weight: 400;
+	
+	/* Heading Font */
+			--heading__font-family__base: 'Playfair Display', sans-serif;
+			--heading__font-weight__base: 600;
+		
+	/* Menu Font */
+			--navigation-level0-item__font-family:  'Futura', sans-serif;
+			--naviation-level0-item__font-size: 14px;
+			--navigation-level0-item__font-weight: 400;
+			
+	/* Other Font */
+		--other_font_family: 'Libre Baskerville', sans-serif;
+	
+	/* Theme Colors */
+	
+	/* Basic Colors */
+		
+	
+	/* Buttons Colors */
+		--button__border-radius: 0pxpx;
+		
+	/* Custom Sticky Background Color */
+	
+	/* Custom Header */
+						
+	/* Custom Footer */
+			--footer-links-color: #878787;
+			--footer__background-color: #FFFFFF;
+		
+	/* Custom Menu */
+	
+	/* Page wraper */
+	}
+
+
+/* Icon LazyLoad */
+img.lazyload,
+img.lazyloading,
+img.swatch-option-loading,
+.data-bgset-image-wrapper.lazyload:after,
+.data-bgset-image-wrapper.lazyloading:after{
+	background-image: url("//azexchangeclub.com/kalles/media/blueskytechco/lazyload/default/loading.gif");}
+
+
+/* Custom Header */
+header.page-header{
+	}
+
+
+
+/* Custom Footer */
+footer.page-footer{
+	}
+
+
+
+
+
+
+/* Customization Style */
+.other-font{
+  font-style: itatic;
+}
+:root{
+  --text__color: #222;
+}
+.elementor-static-menu-title{
+  font-family: var(--font-family-name__base) ;
+}
+.elementor-blog-post-item .data-bgset-image-wrappe{
+  --aspect-ratio: 16/9;
+}
+ul.social-link li a{
+      color: var(--footer-links-color);
+}

@@ -1,0 +1,72 @@
+/* Custom Data 2022-03-22 02:45:33: Do not change this file. */
+
+:root{
+	/* Page Width */
+	
+	/* Body Font */
+		--font-family-name__base: 'Poppins', sans-serif;
+			--font-size__base: 16px;
+			--text-weight: 400;
+	
+	/* Heading Font */
+	
+	/* Menu Font */
+		
+	/* Other Font */
+		--other_font_family: 'Libre Baskerville', sans-serif;
+	
+	/* Theme Colors */
+	
+	/* Basic Colors */
+		
+	
+	/* Buttons Colors */
+		
+	/* Custom Sticky Background Color */
+	
+	/* Custom Header */
+						
+	/* Custom Footer */
+	
+	/* Custom Menu */
+	
+	/* Page wraper */
+	}
+
+
+/* Icon LazyLoad */
+img.lazyload,
+img.lazyloading,
+img.swatch-option-loading,
+.data-bgset-image-wrapper.lazyload:after,
+.data-bgset-image-wrapper.lazyloading:after{
+	background-image: url("//azexchangeclub.com/kalles/media/blueskytechco/lazyload/default/loading.gif");}
+
+
+/* Custom Header */
+header.page-header{
+	}
+
+
+
+
+
+
+
+
+
+/* Customization Style */
+.other-font{
+  font-style: itatic;
+}
+
+.margin_item--20 .slick-list .slick-slide{
+      padding-right: 7.5px;
+    padding-left: 7.5px;
+}
+.margin_item--20 .slick-list .slick-slide > div{
+  margin-bottom: 15px;
+}
+.elementor-instagram-item{
+  border-radius: 5px;
+}

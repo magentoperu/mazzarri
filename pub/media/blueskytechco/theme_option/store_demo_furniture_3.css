@@ -1,0 +1,69 @@
+/* Custom Data 2022-03-23 14:03:11: Do not change this file. */
+
+:root{
+	/* Page Width */
+		--layout__max-width: 1400px;
+	
+	/* Body Font */
+		--font-family-name__base: 'Inter', sans-serif;
+			--font-size__base: 16px;
+			--text-weight: 400;
+	
+	/* Heading Font */
+	
+	/* Menu Font */
+		
+	/* Other Font */
+		--other_font_family: 'Libre Baskerville', sans-serif;
+	
+	/* Theme Colors */
+		--theme__color__primary: #EB0F5D; 
+	
+	/* Basic Colors */
+			--text__color: #696969;
+			--heading__color__base: #222222;
+			--link__color: #EB0F5D;
+			--link__hover__color: #EB0F5D;
+			
+	
+	/* Buttons Colors */
+		
+	/* Custom Sticky Background Color */
+	
+	/* Custom Header */
+						
+	/* Custom Footer */
+	
+	/* Custom Menu */
+	
+	/* Page wraper */
+	}
+
+
+/* Icon LazyLoad */
+img.lazyload,  
+img.lazyloading,
+img.swatch-option-loading,
+.data-bgset-image-wrapper.lazyload:after,
+.data-bgset-image-wrapper.lazyloading:after{
+	background-image: url("//azexchangeclub.com/kalles/media/blueskytechco/lazyload/stores/14/dribble_furniture_100x_2x.gif");}
+
+
+/* Custom Header */
+header.page-header{
+	}
+
+
+
+
+
+
+
+
+
+/* Customization Style */
+.rokan-title .short_description, 
+.elementor__header .short_description,
+.rokan-title .short_description .action.select{
+  font-style: italic;
+}

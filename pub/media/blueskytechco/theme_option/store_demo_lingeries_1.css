@@ -1,0 +1,93 @@
+/* Custom Data 2022-03-23 13:47:54: Do not change this file. */
+
+:root{
+	/* Page Width */
+	
+	/* Body Font */
+		--font-family-name__base: 'Poppins', sans-serif;
+			--font-size__base: 16px;
+			--text-weight: 400;
+	
+	/* Heading Font */
+			--heading__font-family__base: 'Futura', sans-serif;
+			--heading__font-weight__base: 400;
+		
+	/* Menu Font */
+			--navigation-level0-item__font-family:  'Poppins', sans-serif;
+					
+	/* Other Font */
+		--other_font_family: 'Libre Baskerville', sans-serif;
+	
+	/* Theme Colors */
+	
+	/* Basic Colors */
+		
+	
+	/* Buttons Colors */
+		
+	/* Custom Sticky Background Color */
+	
+	/* Custom Header */
+						
+	/* Custom Footer */
+	
+	/* Custom Menu */
+	
+	/* Page wraper */
+	}
+
+
+/* Icon LazyLoad */
+img.lazyload,  
+img.lazyloading,
+img.swatch-option-loading,
+.data-bgset-image-wrapper.lazyload:after,
+.data-bgset-image-wrapper.lazyloading:after{
+	background-image: url("//azexchangeclub.com/kalles/media/blueskytechco/lazyload/stores/12/loading1.gif");}
+
+
+/* Custom Header */
+header.page-header{
+	}
+
+
+
+
+
+
+
+
+
+/* Customization Style */
+.other-font{
+  font-style: itatic;
+}
+:root{
+  --navigation-level0-item__font-weight: 500;
+  --post_item_title-weight: 400;
+  --post_item_title-size: 2.2rem;
+  --link__hover__color: #111;
+}
+footer [data-content-type="heading"],
+ .elementor-static-menu-title{
+   text-transform: uppercase;
+ }
+ .elementor-newsletter-wrapper .form-subscribe{
+       padding: 0;
+       --button__border-radius: 0;
+ }
+ #html-body [data-pb-style=VTXAWV6]{
+       background-color: #edf2f7 !important;
+ }
+ .lookbook-icon.dark > a span{
+    border-color: var(--heading__color__base);
+ }
+ .product-item-name > a{
+       font-family: var(--heading__font-family__base);
+ }
+ .products-grid .product-item .actions-primary .stock.unavailable:hover{
+   color: var(--link__hover__color);
+ }
+ 
+ 
+ 

@@ -1,0 +1,105 @@
+/* Custom Theme 2022-02-25 11:33:00: Do not change this file. */
+
+/* Page Width */
+
+/* Body Font */
+body {
+		font-size: 14px; 
+			font-weight: 400; 
+			font-family: Poppins, sans-serif;
+	}
+button, .cart.table-wrapper .actions-toolbar > .action, .action-gift,
+.action.primary, .action-primary, .btn,{
+		font-family: Poppins, sans-serif;
+	}
+	/* Heading Font Weight*/
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	.blueskytechco-onepagecheckout .step-title,
+	.blueskytechco-onepagecheckout #opc-sidebar .title,
+	.super-deal .super-deal-banner-content .super-deal-countdown .number,
+	.super-deal .item-deal-product .info-price-deal label,
+	.wrapper_sub_category_tabs .widget-tabs ul > ul > li > a,
+	.super-deal-banner .super-deal-banner-content .super-deal-countdown .number,
+	.super-deal .item-deal-product .info-price-deal label,
+	.wrapper_sub_category_tabs .widget-tabs ul > ul > li > a,
+	.customer-account-create .form-create-account .fieldset:not(.additional_info) .legend,
+	.customer-account-forgotpassword .forget .fieldset:not(.additional_info) .legend,
+	.modal-popup .modal-title,
+	b, strong,
+	.cart-totals .grand .amount strong, .opc-block-summary .table-totals .grand .amount strong,
+	.cart-totals .grand .amount strong, .opc-block-summary .table-totals .grand .amount strong,
+	.block-minicart .amount .price-wrapper:first-child .price,
+	.searchsuite-autocomplete ul li .qs-option-info .qs-option-price,
+	th {
+		font-weight: 600; 
+	}
+/* Menu Font Weight*/
+.navigation.custommenu li.level0 .level-top,
+.navigation li.level0.parent .submenu .mega-columns .level1.parent > a{
+		font-weight: 400; 
+	}
+.rokan-title .short_description, 
+.elementor__header .short_description, 
+.block .title.rokan-title .short_description, 
+.rokan-title .short-description, 
+.elementor__header .short-description, 
+.block .title.rokan-title .short-description, 
+.rokan-title .elementor__description, 
+.elementor__header .elementor__description, 
+.block .title.rokan-title .elementor__description, 
+.rokan-title .des, .elementor__header .des, 
+.block .title.rokan-title .des, .rokan-title .short-des, 
+.elementor__header .short-des, .block .title.rokan-title .short-des{
+		font-family: Libre Baskerville, sans-serif;
+	}
+
+
+
+
+/* Custom menu */
+	/* Menu background color */
+		/* Menu hover background color */
+		/* Menu color */
+			.navigation.custommenu li.level0 .level-top,
+		.navigation li.level0.parent .submenu .mega-columns .level1.parent > a{
+			color: #FFFFFF;
+		}
+		/* Menu hover color */
+	
+
+
+
+
+
+
+/* Header */
+	/* Sticky background */
+					/* Topbar background */
+		/* Topbar color */
+		/* Page header background */
+		/* Page header background image*/
+		/* Header color*/
+			.container-setting-language-currency .switcher .switcher-options .switcher-trigger.action.toggle:after,
+		.header-container .hotline .icon,
+		.header-container .address .icon,
+		.header-container .col-action .action-header .minicart-wrapper > a:before,
+		.header-container .col-action .action-header .minicart-wrapper > a.active:before,
+		.header-container .col-action .minicart-wrapper .action.showcart .counter.qty,
+		.header-container .col-action li .counter.qty,
+		.header-container .col-action .action-header > li > a:before, 
+		.header-container .col-action .action-header > li .minicart-wrapper > a:before, 
+		.header-container .col-action .action-header > li .minicart-wrapper > a.active:before,
+		.header-container .header-middle .header.links li.authorization-link a:before{	
+			color: #FFFFFF !important;  
+			
+		}
+	
+
+
+.col-img-bg-pupup{
+	}

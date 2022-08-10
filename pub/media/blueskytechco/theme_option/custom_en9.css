@@ -1,0 +1,141 @@
+/* Custom Theme 2022-02-08 07:54:29: Do not change this file. */
+
+/* Page Width */
+
+/* Body Font */
+body {
+		font-size: 14px; 
+			font-weight: 400; 
+			font-family: Poppins, sans-serif;
+	}
+button, .cart.table-wrapper .actions-toolbar > .action, .action-gift,
+.action.primary, .action-primary, .btn,{
+		font-family: Poppins, sans-serif;
+	}
+/* Heading Font */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.block-widget-blueskytechco-brand .brand-item .brand-name,
+.blueskytechco-onepagecheckout .step-title,
+.blueskytechco-onepagecheckout #opc-sidebar .title,
+.blueskytechco-onepagecheckout #opc-sidebar .opc-block-summary .table-totals,
+.container_vertical_tab_postions.wrapper_category_product_tabs .ui-tabs-nav li a,
+.container_vertical_tab_postions.wrapper_product_tabs .ui-tabs-nav li a,
+.super-deal-banner-content .super-deal-countdown .time_circles .number,
+.super-deal .super-deal-banner-content .super-deal-countdown .number,
+.super-deal-banner .super-deal-banner-content .super-deal-countdown .number,
+.super-deal .item-deal-product .info-price-deal label,
+.wrapper_sub_category_tabs .widget-tabs ul > ul > li > a,
+.wrapper_sub_category_tabs.onlyparent .list-category-item .category-item a .cate-name.cate-count,
+.customer-account-create .form-create-account .fieldset:not(.additional_info) .legend,
+.customer-account-forgotpassword .forget .fieldset:not(.additional_info) .legend,
+.filter-options .filter-options-title, .sidebar .block .filter-options-title, 
+.filter-options .block-title:not(.filter-title) strong, 
+.sidebar .block .block-title:not(.filter-title) strong,
+.product-item-name, .product.name a { 
+		font-family: Roboto Slab, sans-serif;
+	}
+	/* Heading Font Weight*/
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	.blueskytechco-onepagecheckout .step-title,
+	.blueskytechco-onepagecheckout #opc-sidebar .title,
+	.super-deal .super-deal-banner-content .super-deal-countdown .number,
+	.super-deal .item-deal-product .info-price-deal label,
+	.wrapper_sub_category_tabs .widget-tabs ul > ul > li > a,
+	.super-deal-banner .super-deal-banner-content .super-deal-countdown .number,
+	.super-deal .item-deal-product .info-price-deal label,
+	.wrapper_sub_category_tabs .widget-tabs ul > ul > li > a,
+	.customer-account-create .form-create-account .fieldset:not(.additional_info) .legend,
+	.customer-account-forgotpassword .forget .fieldset:not(.additional_info) .legend,
+	.modal-popup .modal-title,
+	b, strong,
+	.cart-totals .grand .amount strong, .opc-block-summary .table-totals .grand .amount strong,
+	.cart-totals .grand .amount strong, .opc-block-summary .table-totals .grand .amount strong,
+	.block-minicart .amount .price-wrapper:first-child .price,
+	.searchsuite-autocomplete ul li .qs-option-info .qs-option-price,
+	th {
+		font-weight: 300; 
+	}
+/* Menu Font Weight*/
+.navigation.custommenu li.level0 .level-top,
+.navigation li.level0.parent .submenu .mega-columns .level1.parent > a{
+		font-weight: 400; 
+	}
+
+/* Basic Color */
+	/* Heading Color */
+			h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		.block-widget-blueskytechco-brand .brand-item .brand-name,
+		.blueskytechco-onepagecheckout .step-title,
+		.blueskytechco-onepagecheckout #opc-sidebar .title,
+		.blueskytechco-onepagecheckout #opc-sidebar .opc-block-summary .table-totals,
+		.container_vertical_tab_postions.wrapper_category_product_tabs .ui-tabs-nav li a,
+		.container_vertical_tab_postions.wrapper_product_tabs .ui-tabs-nav li a,
+		.super-deal-banner-content .super-deal-countdown .time_circles .number,
+		.super-deal .super-deal-banner-content .super-deal-countdown .number,
+		.super-deal-banner .super-deal-banner-content .super-deal-countdown .number,
+		.super-deal .item-deal-product .info-price-deal label,
+		.wrapper_sub_category_tabs .widget-tabs ul > ul > li > a,
+		.wrapper_sub_category_tabs.onlyparent .list-category-item .category-item a .cate-name.cate-count,
+		.customer-account-create .form-create-account .fieldset:not(.additional_info) .legend,
+		.customer-account-forgotpassword .forget .fieldset:not(.additional_info) .legend,
+		.filter-options .filter-options-title, .sidebar .block .filter-options-title, 
+		.filter-options .block-title:not(.filter-title) strong, 
+		.sidebar .block .block-title:not(.filter-title) strong,
+		.block .title strong,
+		.product-item-name > a, 
+		.product.name a > a,
+		h1 a,
+		h2 a,
+		h3 a,
+		h4 a,
+		h5 a,
+		h6 a,
+		.color_heading{
+			color: #293341;
+		}
+		/* Primary color */
+		/* Text color */
+			body{
+			color: #7B7B7B;
+		}
+	
+
+
+/* Button color */
+	/* Button color */
+		/* Button background color */
+		/* Button hover color */
+		/* Button hover background color */
+	
+
+
+
+
+
+
+
+
+
+
+/* Newsletter popup */
+	#newsletter_pop_up{
+	width: 530px;height: 568px;background-color: ##FFFFFF;	}
+	#newsletter_pop_up .col-img-bg-pupup{ 
+		background-image: url(http://azexchangeclub.com/kalles/media/blueskytechco/newsletter/background/default/banner5_540x.jpeg); background-size: cover; background-position: center;	}
+.col-img-bg-pupup{
+	}

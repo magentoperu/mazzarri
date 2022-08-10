@@ -1,0 +1,105 @@
+/* Custom Data 2022-03-23 14:16:14: Do not change this file. */
+
+:root{
+	/* Page Width */
+	
+	/* Body Font */
+		--font-family-name__base: 'Poppins', sans-serif;
+			--font-size__base: 16px;
+			--text-weight: 400;
+	
+	/* Heading Font */
+			--heading__font-family__base: 'Playfair Display', sans-serif;
+			--heading__font-weight__base: 600;
+		
+	/* Menu Font */
+		
+	/* Other Font */
+		--other_font_family: 'Libre Baskerville', sans-serif;
+	
+	/* Theme Colors */
+		--theme__color__primary: #7D947D; 
+	
+	/* Basic Colors */
+		
+	
+	/* Buttons Colors */
+		
+	/* Custom Sticky Background Color */
+	
+	/* Custom Header */
+						
+	/* Custom Footer */
+	
+	/* Custom Menu */
+	
+	/* Page wraper */
+	}
+
+
+/* Icon LazyLoad */
+img.lazyload,  
+img.lazyloading,
+img.swatch-option-loading,
+.data-bgset-image-wrapper.lazyload:after,
+.data-bgset-image-wrapper.lazyloading:after{
+	background-image: url("//azexchangeclub.com/kalles/media/blueskytechco/lazyload/stores/9/icon.gif");}
+
+
+/* Custom Header */
+header.page-header{
+	}
+
+
+
+
+
+
+
+
+
+/* Customization Style */
+.other-font{
+  font-style: itatic;
+}
+:root{
+  --topbarbg:#9ebfb5;
+  --topbarcolor:#fff;
+  --topbar-size:13px;
+  --navigation-level0-item__font-family: var(--font-family-name__base);
+  
+    --lazyload_bg_color: #f5f5f5;
+    --lazyload_bg_size: 120px;
+
+}
+.page-header{
+  --layout__max-width: 100%;
+}
+
+.product-item-name > a{
+  font-family: var(--heading__font-family__base);
+  font-size: 16px;
+}
+span.label-new{
+      background-color: #65b32e;
+}
+.topbar  span a{
+  color:#fff !important;
+}
+.product-label .onsale{
+      background-color: #eaafab;
+}
+item .special-price .price-final_price *{
+  color: #eaafab;
+}
+@media (min-width: 1200px){
+  [class*="page-layout-2columns"] :not(.section-product) .products-grid .product-items:not(.container-products-masonry,.container-products-packery, .widget-product-countdown-timers-grid) .product-item{
+    width: 33.333%;
+  }
+  *[class*="page-layout-2columns"] .toolbar:not(:last-child) .grid-mode-show-type-products > a.grid-mode-4{
+    display: none;
+  }
+}
+
+
+

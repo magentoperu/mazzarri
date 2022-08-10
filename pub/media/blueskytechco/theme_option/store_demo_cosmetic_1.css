@@ -1,0 +1,93 @@
+/* Custom Data 2022-03-23 14:48:29: Do not change this file. */
+
+:root{
+	/* Page Width */
+	
+	/* Body Font */
+		--font-family-name__base: 'Poppins', sans-serif;
+			--font-size__base: 16px;
+			--text-weight: 400;
+	
+	/* Heading Font */
+			--heading__font-family__base: 'Playfair Display', sans-serif;
+			--heading__font-weight__base: 500;
+		
+	/* Menu Font */
+			--navigation-level0-item__font-family:  'Poppins', sans-serif;
+			--naviation-level0-item__font-size: 13px;
+			--navigation-level0-item__font-weight: 400;
+			
+	/* Other Font */
+		--other_font_family: 'Libre Baskerville', sans-serif;
+	
+	/* Theme Colors */
+		--theme__color__primary: #81BE17; 
+	
+	/* Basic Colors */
+		
+	
+	/* Buttons Colors */
+		
+	/* Custom Sticky Background Color */
+	
+	/* Custom Header */
+						
+	/* Custom Footer */
+	
+	/* Custom Menu */
+	
+	/* Page wraper */
+	}
+
+
+/* Icon LazyLoad */
+img.lazyload,  
+img.lazyloading,
+img.swatch-option-loading,
+.data-bgset-image-wrapper.lazyload:after,
+.data-bgset-image-wrapper.lazyloading:after{
+	background-image: url("//azexchangeclub.com/kalles/media/blueskytechco/lazyload/stores/10/1.gif");}
+
+
+/* Custom Header */
+header.page-header{
+	}
+
+
+
+
+
+
+
+
+
+/* Customization Style */
+.other-font{
+  font-style: itatic;
+}
+:root{
+--topbarbg: #6d604c;
+--topbarcolor:#fff;
+--topbar-size:13px;
+--navigation-level0-item__font-weight: 500;
+}
+.header-container .header__action-default .minicart-wrapper .action.showcart .counter.qty,
+.header-container .header__action-default li .counter.qty{
+  background-color: var(--link__hover__color);
+}
+.product-item-name > a{
+      font-family: var(--heading__font-family__base);
+      font-size: 16px;
+}
+.elementor-newsletter-wrapper button{
+   background-color: var(--link__hover__color);
+   border-color: var(--link__hover__color);
+}
+@media (min-width: 1200px){
+  [class*="page-layout-2columns"] :not(.section-product) .products-grid .product-items:not(.container-products-masonry,.container-products-packery, .widget-product-countdown-timers-grid) .product-item{
+    width: 33.333%;
+  }
+  *[class*="page-layout-2columns"] .toolbar:not(:last-child) .grid-mode-show-type-products > a.grid-mode-4{
+    display: none;
+  }
+}

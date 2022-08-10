@@ -1,0 +1,175 @@
+/* Custom Data 2022-03-23 13:51:52: Do not change this file. */
+
+:root{
+	/* Page Width */
+	
+	/* Body Font */
+		--font-family-name__base: 'Poppins', sans-serif;
+			--font-size__base: 16px;
+			--text-weight: 400;
+	
+	/* Heading Font */
+			--heading__font-family__base: 'Rubik', sans-serif;
+			--heading__font-weight__base: 500;
+		
+	/* Menu Font */
+		
+	/* Other Font */
+		--other_font_family: 'Libre Baskerville', sans-serif;
+	
+	/* Theme Colors */
+		--theme__color__primary: #FF2020; 
+	
+	/* Basic Colors */
+		
+	
+	/* Buttons Colors */
+		--button__border-radius: 0px;
+		
+	/* Custom Sticky Background Color */
+	
+	/* Custom Header */
+				--topbarcolor: #FFFFFF;
+				--header__background-color: #222222;
+		
+	/* Custom Footer */
+			--footer-links-color: #CCCCCC;
+			
+	/* Custom Menu */
+			--navigation-level0-item__color: #FFFFFF;
+					
+	/* Page wraper */
+	}
+
+
+/* Icon LazyLoad */
+img.lazyload,  
+img.lazyloading,
+img.swatch-option-loading,
+.data-bgset-image-wrapper.lazyload:after,
+.data-bgset-image-wrapper.lazyloading:after{
+	background-image: url("//azexchangeclub.com/kalles/media/blueskytechco/lazyload/stores/21/loading1.gif");}
+
+
+/* Custom Header */
+header.page-header{
+	}
+
+
+
+/* Custom Footer */
+footer.page-footer{
+	}
+
+
+
+
+
+
+/* Customization Style */
+.other-font{
+  font-style: itatic;
+}
+:root{
+  --post_item_title-weight: 500;
+  --header-icons-color:#fff;
+}
+.product-items,.elementor-newsletter-wrapper{
+  --button__border-radius:0;
+}
+
+
+#html-body .content__top--header--banner [data-content-type='row'][data-appearance='full-bleed']{
+      background-color: #000000;
+}
+media="screen and (min-width: 768px){
+  .product__style-6 .products-grid .product-item .product-item-details{
+       text-align: left;
+  }
+  .daily_deal-boder .products-grid .product-item .product-item-details .price-box{
+        text-align: left;
+    justify-content: flex-start;
+  }
+}
+.widget-daily-deal-slider .product-item-info .product-item-details .price-box .price{
+      font-size: 14px;
+}
+.daily_deal-boder .products-grid .product-item .product-item-details{
+  text-align: left;
+}
+.widget-daily-deal-slider .product-item-info .product-item-details .product-item-name{
+   font-size: 15px;
+    font-family: var(--heading__font-family__base);
+    font-weight: var(--heading__font-weight__base);
+}
+.container-sold-salable-quantity .container-sold-number{
+      display: flex;
+      justify-content: space-between;
+}
+.container-sold-salable-quantity .container-sold-number .number-sold,.header-daily-deal-container .container-countdown-time{
+  font-weight: 500;
+}
+
+.lookbook-icon > a span{
+  border-color: var(--theme__color__primary);
+  background-color: var(--theme__color__primary);
+  color:#fff
+  
+}
+.post-info .value{
+  text-transform: uppercase;
+  color: var(--theme__color__primary);
+  
+}
+.widget-daily-deal-slider .product-item-info .product-item-details .price-box .price{
+  font-size: 14px;
+}
+footer{
+  --heading__color__base: #fff;
+}
+.page-footer p,.page-footer .elementor-icon-box-wrapper i{
+  color: var(--footer-links-color);
+}
+footer
+#html-body [data-pb-style=X0AT5B6]{
+      background-color: #222222;
+}
+.elementor-newsletter-wrapper button{
+      background: var(--theme__color__primary);
+    border: 2px solid var(--theme__color__primary);
+}
+
+@media (min-width: 1200px){
+.header-container.layout-7{
+   --layout__max-width:100%;
+   --naviation-level0-item__font-size: 15px;
+   --navigation-level0-item__font-family: var(--font-family-name__base);
+}
+  .cms-index-index .header-container.layout-7:not(.sticky){   
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 390;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  .navigation{
+      background: none;
+   }
+   .header-container.layout-7:not(.sticky) .header__action-default > li a::before{
+     color: #fff;
+   }
+  .header-container .header__action-default .minicart-wrapper .action.showcart .counter.qty,
+    .header-container .header__action-default li .counter.qty{
+      background-color: var(--link__hover__color);
+    }
+     .header-container.layout-7:not(.sticky) .setting-view span::before{
+         color: #fff;
+    }
+}
+
+
+
+
+
