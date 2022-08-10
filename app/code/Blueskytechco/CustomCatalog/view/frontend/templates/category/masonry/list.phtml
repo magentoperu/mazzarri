@@ -107,7 +107,7 @@ $_helper = $block->getData('outputHelper');
                                             <?php endif; ?>
                                         </div>
                                     </div>
-                                    <?= strpos($pos, $viewMode . '-primary') ?
+                                    <?= ($pos && strpos($pos, $viewMode . '-primary')) ?
                                         /* @noEscape */ $secureRenderer->renderStyleAsTag(
                                             $position,
                                             'product-item-info_' . $_product->getId() . ' div.actions-primary'
@@ -117,7 +117,7 @@ $_helper = $block->getData('outputHelper');
                                             <?= $addToBlock->setProduct($_product)->getChildHtml() ?>
                                         <?php endif; ?>
                                     </div>
-                                    <?= strpos($pos, $viewMode . '-secondary') ?
+                                    <?= ($pos && strpos($pos, $viewMode . '-secondary')) ?
                                         /* @noEscape */ $secureRenderer->renderStyleAsTag(
                                             $position,
                                             'product-item-info_' . $_product->getId() . ' div.actions-secondary'
@@ -171,7 +171,7 @@ $_helper = $block->getData('outputHelper');
                                                 <?= $addToBlock->setProduct($_product)->getChildHtml() ?>
                                             <?php endif; ?>
                                         </div>
-                                        <?= strpos($pos, $viewMode . '-secondary') ?
+                                        <?= ($pos && strpos($pos, $viewMode . '-primary')) ?
                                             /* @noEscape */ $secureRenderer->renderStyleAsTag(
                                                 $position,
                                                 'product-item-info_' . $_product->getId() . ' div.actions-secondary'
@@ -226,7 +226,7 @@ $_helper = $block->getData('outputHelper');
                         <?php if ($block->getMode() == 'list') { ?></div><?php } ?>
                     </div>
                 </div>
-                <?= strpos($pos, $viewMode . '-actions') ?
+                <?= ($pos && strpos($pos, $viewMode . '-actions')) ?
                 /* @noEscape */ $secureRenderer->renderStyleAsTag(
                     $position,
                     'product-item-info_' . $_product->getId() . ' div.product-item-actions'

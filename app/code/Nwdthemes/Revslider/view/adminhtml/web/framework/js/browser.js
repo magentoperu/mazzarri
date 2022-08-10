@@ -1,70 +1,125 @@
 /**
- * Copyright © 2016 Magento. All rights reserved.
+ * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-/*jshint browser:true jquery:true*/
-define([
-    "jquery",
-    "Magento_Ui/js/modal/prompt",
-    "Magento_Ui/js/modal/confirm",
-    "Magento_Ui/js/modal/alert",
-    "Magento_Ui/js/modal/modal",
-    "jquery/ui",
-    "jquery/jstree/jquery.jstree",
-    "mage/mage"
-], function($, prompt, confirm, alert){
 
-    MediabrowserUtility = {
+/* global MediabrowserUtility, FORM_KEY, tinyMceEditors */
+/* eslint-disable strict */
+define([
+    'jquery',
+    'wysiwygAdapter',
+    'Magento_Ui/js/modal/prompt',
+    'Magento_Ui/js/modal/confirm',
+    'Magento_Ui/js/modal/alert',
+    'underscore',
+    'Magento_Ui/js/modal/modal',
+    'jquery/ui',
+    'jquery/jstree/jquery.jstree',
+    'mage/mage'
+], function ($, wysiwyg, prompt, confirm, alert, _) {
+    window.MediabrowserUtility = {
         windowId: 'modal_dialog_message',
-        getMaxZIndex: function() {
-            var max = 0, i;
-            var cn = document.body.childNodes;
+        modalLoaded: false,
+        targetElementId: false,
+        pathId: '',
+
+        /**
+         * @return {Number}
+         */
+        getMaxZIndex: function () {
+            var max = 0,
+                cn = document.body.childNodes,
+                i, el, zIndex;
+
             for (i = 0; i < cn.length; i++) {
-                var el = cn[i];
-                var zIndex = el.nodeType == 1 ? parseInt(el.style.zIndex, 10) || 0 : 0;
+                el = cn[i];
+                zIndex = el.nodeType == 1 ? parseInt(el.style.zIndex, 10) || 0 : 0; //eslint-disable-line eqeqeq
+
                 if (zIndex < 10000) {
                     max = Math.max(max, zIndex);
                 }
             }
+
             return max + 10;
         },
-        openDialog: function(url, width, height, title, options, onInsert) {
-            var windowId = this.windowId,
-                content = '<div class="popup-window magento-message" "id="' + windowId + '"></div>',
-                self = this;
 
-            if (this.modal) {
-                this.modal.html($(content).html());
-                this.modal.modal('option', 'closed', options.closed);
-            } else {
-                this.modal = $(content).modal($.extend({
-                    title:  title || 'Insert File...',
-                    modalClass: 'magento',
-                    type: 'slide',
-                    buttons: []
-                }, options));
+        /**
+         * @param {*} url
+         * @param {*} width
+         * @param {*} height
+         * @param {*} title
+         * @param {Object} options
+         * @param {Function} options
+         */
+         openDialog: function(url, width, height, title, options, onInsert) {
+            var windowId = this.windowId,
+                content = '<div class="popup-window" id="' + windowId + '"></div>';
+
+            if (this.modalLoaded) {
+
+                if (!_.isUndefined(options)) {
+                    this.modal.modal('option', 'closed', options.closed);
+                }
+
+                this.modal.modal('openModal');
+                $(window).trigger('reload.MediaGallery');
+
+                return;
             }
+
+            this.modal = $(content).modal($.extend({
+                title:  title || 'Insert File...',
+                modalClass: 'magento',
+                type: 'slide',
+                buttons: []
+            }, options));
+
             this.modal.modal('openModal');
+
             $.ajax({
                 url: url,
                 type: 'get',
                 context: $(this),
                 showLoader: true
 
-            }).done(function(data) {
-                self.modal.html(data).trigger('contentUpdated');
-                self.modal.find('#insert_files').data('onInsert', onInsert);
-            });
+            }).done(function (data) {
+                this.modal.html(data).trigger('contentUpdated');
+                this.modal.find('#insert_files').data('onInsert', onInsert);
+                this.modalLoaded = true;
+            }.bind(this));
+
         },
-        closeDialog: function() {
+
+        /**
+         * Setter for endcoded path id
+         */
+        setPathId: function (url) {
+            this.pathId = url.match(/(&|\/|%26)current_tree_path(=|\/)([\s\S].*?)(\/|$)/)[3];
+        },
+
+        /**
+         * Setter for targetElementId property
+         *
+         * @param {Object} options
+         * @param {String} url
+         */
+        setTargetElementId: function (options, url) {
+            this.targetElementId = options && options.targetElementId ?
+                options.targetElementId
+                : url.match(/\/target_element_id\/([\s\S].*?)\//)[1];
+        },
+
+        /**
+         * Close dialog.
+         */
+        closeDialog: function () {
             this.modal.modal('closeModal');
         }
     };
 
     $.widget("nwdthemes_revslider.mediabrowser", {
-        eventPrefix: "mediabrowser",
+        eventPrefix: 'mediabrowser',
         options: {
-            targetElementId: null,
             contentsUrl: null,
             onInsertUrl: null,
             onInsert: null,
@@ -78,11 +133,12 @@ define([
             showBreadcrumbs: null,
             hidden: 'no-display'
         },
+
         /**
          * Proxy creation
          * @protected
          */
-        _create: function() {
+        _create: function () {
             this._on({
                 'click [data-row=file]': 'selectFile',
                 'dblclick [data-row=file]': 'insert',
@@ -93,46 +149,65 @@ define([
                 'fileuploaddone': '_uploadDone',
                 'click [data-row=breadcrumb]': 'selectFolder'
             });
+
+            $(window).on('reload.MediaGallery', $.proxy(this.reload, this));
             this.activeNode = null;
             //tree dont use event bubbling
             this.tree = this.element.find('[data-role=tree]');
-            this.tree.on("select_node.jstree", $.proxy(this._selectNode, this));
+            this.tree.on('select_node.jstree', $.proxy(this._selectNode, this));
             this.onInsert = this.element.find('#insert_files').data('onInsert');
         },
 
-        _selectNode: function(event, data) {
-            var node = data.rslt.obj.data('node');
+        /**
+         * @param {jQuery.Event} event
+         * @param {Object} data
+         * @private
+         */
+        _selectNode: function (event, data) {
+            var node = data.node;
+
             this.activeNode = node;
             this.element.find('#delete_files, #insert_files').toggleClass(this.options.hidden, true);
             this.element.find('#contents').toggleClass(this.options.hidden, false);
-            this.element.find('#delete_folder').toggleClass(this.options.hidden, node.id == 'root');
-            this.element.find('#content_header_text').html(node.id == 'root' ? this.headerText : node.text);
+            this.element.find('#delete_folder')
+                .toggleClass(this.options.hidden, node.id === 'root'); //eslint-disable-line eqeqeq
+            this.element.find('#content_header_text')
+                .html(node.id === 'root' ? this.headerText : node.text); //eslint-disable-line eqeqeq
 
             this.drawBreadcrumbs(data);
             this.loadFileList(node);
         },
 
-        reload : function() {
-            return this.loadFileList(this.activeNode);
+        /**
+         * @return {*}
+         */
+        reload: function (uploaded) {
+            return this.loadFileList(this.activeNode, uploaded);
         },
 
-        insertAtCursor: function(element, value) {
+        /**
+         * @param {Object} element
+         * @param {*} value
+         */
+        insertAtCursor: function (element, value) {
+            var sel, startPos, endPos, scrollTop;
+
             if ('selection' in document) {
                 //For browsers like Internet Explorer
                 element.focus();
                 sel = document.selection.createRange();
                 sel.text = value;
                 element.focus();
-            } else if (element.selectionStart || element.selectionStart == '0') {
+            } else if (element.selectionStart || element.selectionStart == '0') { //eslint-disable-line eqeqeq
                 //For browsers like Firefox and Webkit based
-                var startPos = element.selectionStart;
-                var endPos = element.selectionEnd;
-                var scrollTop = element.scrollTop;
-                element.value = element.value.substring(0, startPos) + value + element.value.substring(startPos, endPos)
-                    + element.value.substring(endPos, element.value.length);
+                startPos = element.selectionStart;
+                endPos = element.selectionEnd;
+                scrollTop = element.scrollTop;
+                element.value = element.value.substring(0, startPos) + value +
+                    element.value.substring(startPos, endPos) + element.value.substring(endPos, element.value.length);
                 element.focus();
                 element.selectionStart = startPos + value.length;
-                element.selectionEnd = ((startPos + value.length) + element.value.substring(startPos, endPos).length);
+                element.selectionEnd = startPos + value.length + element.value.substring(startPos, endPos).length;
                 element.scrollTop = scrollTop;
             } else {
                 element.value += value;
@@ -140,33 +215,51 @@ define([
             }
         },
 
-        loadFileList: function(node) {
+        /**
+         * @param {Object} node
+         */
+        loadFileList: function (node, uploaded) {
             var contentBlock = this.element.find('#contents');
+
             return $.ajax({
                 url: this.options.contentsUrl,
                 type: 'GET',
                 dataType: 'html',
                 data: {
-                    form_key: FORM_KEY,
-                    node: node.id
+                    'form_key': FORM_KEY,
+                    node: node ? node.id : null
                 },
                 context: contentBlock,
                 showLoader: true
-            }).done(function(data) {
+            }).done(function (data) {
                 contentBlock.html(data).trigger('contentUpdated');
+
+                if (uploaded) {
+                    contentBlock.find('.filecnt:last').trigger('click');
+                }
             });
         },
 
-        selectFolder: function(event) {
-            this.element.find('[data-id="'+ $(event.currentTarget).data('node').id +'"]>a').click();
+        /**
+         * @param {jQuery.Event} event
+         */
+        selectFolder: function (event) {
+            this.element.find('[data-id="' + $(event.currentTarget).data('node').id + '"]>a').trigger('click');
         },
 
-        insertSelectedFiles: function(event) {
+        /**
+         * Insert selected files.
+         */
+        insertSelectedFiles: function () {
             this.element.find('[data-row=file].selected').trigger('dblclick');
         },
 
-        selectFile: function(event) {
+        /**
+         * @param {jQuery.Event} event
+         */
+        selectFile: function (event) {
             var fileRow = $(event.currentTarget);
+
             fileRow.toggleClass('selected');
             this.element.find('[data-row=file]').not(fileRow).removeClass('selected');
             this.element.find('#delete_files, #insert_files')
@@ -174,14 +267,21 @@ define([
             fileRow.trigger('selectfile');
         },
 
-        _uploadDone: function(event) {
+        /**
+         * @private
+         */
+        _uploadDone: function () {
             this.element.find('.file-row').remove();
-            this.reload();
+            this.reload(true);
         },
 
-        insert: function(event) {
-
-            var fileRow = $(event.currentTarget);
+        /**
+         * @param {jQuery.Event} event
+         * @return {Boolean}
+         */
+        insert: function (event) {
+            var fileRow = $(event.currentTarget),
+                targetEl;
 
             if (!fileRow.prop('id')) {
                 return false;
@@ -193,12 +293,13 @@ define([
                     filename: fileRow.attr('id'),
                     node: this.activeNode.id,
                     store: this.options.storeId,
-                    as_is: 0,
-                    form_key: FORM_KEY
+                    'as_is': 0,
+                    'force_static_path': 0,
+                    'form_key': FORM_KEY
                 },
                 context: this,
                 showLoader: true
-            }).done($.proxy(function(data) {
+            }).done($.proxy(function (data) {
                 if (typeof data == 'string') {
                     data = JSON.parse(data.replace(/(\r\n|\n|\r)/gm, "").trim());
                 }
@@ -219,72 +320,88 @@ define([
          *  in document:
          *  - element with target ID
          *
-         * return HTMLelement | null
+         * return {HTMLElement|null}
          */
-        getTargetElement: function() {
-            if (typeof(tinyMCE) != 'undefined' && tinyMCE.get(this.options.targetElementId)) {
-                var opener = this.getMediaBrowserOpener() || window;
-                var targetElementId = tinyMceEditors.get(this.options.targetElementId).getMediaBrowserTargetElementId();
-                return $(opener.document.getElementById(targetElementId));
-            } else {
-                return $('#' + this.options.targetElementId);
+        getTargetElement: function () {
+            var mediaBrowser = window.MediabrowserUtility;
+
+            if (!_.isUndefined(wysiwyg) && wysiwyg.get(mediaBrowser.targetElementId)) {
+                return this.getMediaBrowserOpener() || window;
             }
+
+            return $('#' + mediaBrowser.targetElementId);
         },
 
         /**
          * Return opener Window object if it exists, not closed and editor is active
          *
-         * return object | null
+         * return {Object|null}
          */
-        getMediaBrowserOpener: function() {
-            if (typeof(tinyMCE) != 'undefined'
-                && tinyMCE.get(this.options.targetElementId)
-                && typeof(tinyMceEditors) != 'undefined'
-                && !tinyMceEditors.get(this.options.targetElementId).getMediaBrowserOpener().closed) {
-                return tinyMceEditors.get(this.options.targetElementId).getMediaBrowserOpener();
-            } else {
-                return null;
+        getMediaBrowserOpener: function () {
+            var targetElementId = window.MediabrowserUtility.targetElementId;
+
+            if (!_.isUndefined(wysiwyg) && wysiwyg.get(targetElementId) && !_.isUndefined(tinyMceEditors)) {
+                return tinyMceEditors.get(targetElementId).getMediaBrowserOpener();
             }
+
+            return null;
         },
 
-        newFolder: function() {
+        /**
+         * New folder.
+         */
+        newFolder: function () {
             var self = this;
 
             prompt({
                 title: this.options.newFolderPrompt,
                 actions: {
+                    /**
+                     * @param {*} folderName
+                     */
                     confirm: function (folderName) {
-                        return $.ajax({
+                        $.ajax({
                             url: self.options.newFolderUrl,
                             dataType: 'json',
                             data: {
                                 name: folderName,
                                 node: self.activeNode.id,
                                 store: self.options.storeId,
-                                form_key: FORM_KEY
+                                'form_key': FORM_KEY
                             },
                             context: self.element,
                             showLoader: true
-                        }).done($.proxy(function(data) {
+                        }).done($.proxy(function (data) {
                             if (data.error) {
                                 alert({
                                     content: data.message
                                 });
                             } else {
-                                self.tree.jstree('refresh',  self.element.find('[data-id="' + self.activeNode.id + '"]'));
+                                self.tree.jstree(
+                                    'refresh_node',
+                                    self.element.find('[data-id="' + self.activeNode.id + '"]')
+                                );
                             }
                         }, this));
+
+                        return true;
                     }
                 }
             });
         },
 
-        deleteFolder: function() {
+        /**
+         * Delete folder.
+         */
+        deleteFolder: function () {
             var self = this;
 
             confirm({
                 content: this.options.deleteFolderConfirmationMessage,
                 actions: {
+                    /**
+                     * Confirm.
+                     */
                     confirm: function () {
                         return $.ajax({
                             url: self.options.deleteFolderUrl,
@@ -292,14 +409,28 @@ define([
                             data: {
                                 node: self.activeNode.id,
                                 store: self.options.storeId,
-                                form_key: FORM_KEY
+                                'form_key': FORM_KEY
                             },
                             context: self.element,
                             showLoader: true
-                        }).done($.proxy(function(data) {
-                            self.tree.jstree('refresh', self.activeNode.id);
+                        }).done($.proxy(function (data) {
+                            if (data.error) {
+                                alert({
+                                    content: data.message
+                                });
+                            } else {
+                                self.tree.jstree('refresh', self.activeNode.id);
+                                self.reload();
+                                $(window).trigger('fileDeleted.mediabrowser', {
+                                    ids: self.activeNode.id
+                                });
+                            }
                         }, this));
                     },
+
+                    /**
+                     * @return {Boolean}
+                     */
                     cancel: function () {
                         return false;
                     }
@@ -307,31 +438,54 @@ define([
             });
         },
 
-        deleteFiles: function() {
+        /**
+         * Delete files.
+         */
+        deleteFiles: function () {
             var self = this;
 
             confirm({
                 content: this.options.deleteFileConfirmationMessage,
                 actions: {
+                    /**
+                     * Confirm.
+                     */
                     confirm: function () {
-                        var selectedFiles = self.element.find('[data-row=file].selected');
-                        var ids = selectedFiles.map(function(index, file) {
-                            return $(this).attr('id');
-                        }).toArray();
+                        var selectedFiles = self.element.find('[data-row=file].selected'),
+                            ids = selectedFiles.map(function () {
+                                return $(this).attr('id');
+                            }).toArray();
 
                         return $.ajax({
                             url: self.options.deleteFilesUrl,
                             data: {
                                 files: ids,
                                 store: self.options.storeId,
-                                form_key: FORM_KEY
+                                'form_key': FORM_KEY
                             },
                             context: self.element,
                             showLoader: true
-                        }).done($.proxy(function(data) {
-                            self.reload();
+                        }).done($.proxy(function (data) {
+                            if (data.error) {
+                                alert({
+                                    content: data.message
+                                });
+                            } else {
+                                self.reload();
+                                self.element.find('#delete_files, #insert_files').toggleClass(
+                                    self.options.hidden, true
+                                );
+
+                                $(window).trigger('fileDeleted.mediabrowser', {
+                                    ids: ids
+                                });
+                            }
                         }, this));
                     },
+
+                    /**
+                     * @return {Boolean}
+                     */
                     cancel: function () {
                         return false;
                     }
@@ -339,27 +493,34 @@ define([
             });
         },
 
-        drawBreadcrumbs: function(data) {
+        /**
+         * @param {Object} data
+         */
+        drawBreadcrumbs: function (data) {
+            var node, breadcrumbs;
+
             if (this.element.find('#breadcrumbs').length) {
                 this.element.find('#breadcrumbs').remove();
             }
-            var node = data.rslt.obj.data('node');
-            if (node.id == 'root') {
+            node = data.node;
+
+            if (node.id === 'root') { //eslint-disable-line eqeqeq
                 return;
             }
-            var breadcrumbs = $('<ul class="breadcrumbs" id="breadcrumbs" />');
-            $(data.rslt.obj.parents('[data-id]').get().reverse()).add(data.rslt.obj).each(function(index, element){
-                var node = $(element).data('node');
+            breadcrumbs = $('<ul class="breadcrumbs" id="breadcrumbs"></ul>');
+            // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
+            data.instance.get_path(node).each(function (name, index) {
                 if (index > 0) {
-                    breadcrumbs.append($('<li>\/</li>'));
+                    breadcrumbs.append($('<li>\/</li>')); //eslint-disable-line
                 }
-                breadcrumbs.append($('<li />').data('node', node).attr('data-row', 'breadcrumb').text(node.text));
+                breadcrumbs.append($('<li />').attr('data-row', 'breadcrumb').text(name));
 
             });
+            // jscs:enable requireCamelCaseOrUpperCaseIdentifiers
 
-            breadcrumbs.insertAfter(this.element.find('#content_header'))
+            breadcrumbs.insertAfter(this.element.find('#content_header'));
         }
     });
 
-    return MediabrowserUtility;
+    return window.MediabrowserUtility;
 });

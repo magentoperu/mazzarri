@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Blueskytechco\PageBuilderCustom\Model\Stage;
 
 use Magento\Framework\App\ObjectManager;
@@ -48,8 +50,8 @@ class Config extends \Magento\PageBuilder\Model\Stage\Config
     private $sessionRandomKey;
     private $cache_db;
 
-    protected $_modelPageBuilderCache;
-    protected $_modelPageBuilderCacheCollectionFactory;
+    private $_modelPageBuilderCache;
+    private $_modelPageBuilderCacheCollectionFactory;
 
     public function __construct(
         \Magento\PageBuilder\Model\ConfigInterface $config,
@@ -68,14 +70,11 @@ class Config extends \Magento\PageBuilder\Model\Stage\Config
         AuthorizationInterface $authorization = null,
         FrontendInterface $cache = null,
         Json $serializer = null,
-        ?RandomKey $sessionRandomKey = null,
-        \Blueskytechco\PageBuilderCustom\Model\BlueskytechcoPageBuilderCacheFactory $modelPageBuilderCache,
-        \Blueskytechco\PageBuilderCustom\Model\ResourceModel\BlueskytechcoPageBuilderCache\CollectionFactory $modelPageBuilderCacheCollectionFactory
+        ?RandomKey $sessionRandomKey = null
     ) {
-    	#parent::__construct($config, $uiComponentConfig, $urlBuilder, $frontendUrlBuilder, $additionalDataParser, $scopeConfig, $activeEditor, $inlineEditingChecker, $widgetInitializerConfig, $rootContainerConfig, $data, $widgetConfig, $variableConfig, $authorization, $cache, $serializer, $sessionRandomKey);
-        $this->cache_db = ['CONTENT_TYPE_staticmenu','CONTENT_TYPE_newsletter','CONTENT_TYPE_button-item','CONTENT_TYPE_staticmenu-item','CONTENT_TYPE_iconbox','CONTENT_TYPE_blog_posts','CONTENT_TYPE_column-group','CONTENT_TYPE_instagram','CONTENT_TYPE_video','CONTENT_TYPE_heading','CONTENT_TYPE_tabs','CONTENT_TYPE_products','CONTENT_TYPE_tab-item','CONTENT_TYPE_category_thumbnail_image','CONTENT_TYPE_testimonial','CONTENT_TYPE_buttons','CONTENT_TYPE_product_advanced','CONTENT_TYPE_slider','CONTENT_TYPE_divider','CONTENT_TYPE_map','CONTENT_TYPE_gallery','CONTENT_TYPE_faq','CONTENT_TYPE_html','CONTENT_TYPE_productcountdowntimers','CONTENT_TYPE_daily_deal','CONTENT_TYPE_root-container','WIDGET_BREAKPOINS'];
-        $this->_modelPageBuilderCache = $modelPageBuilderCache;
-        $this->_modelPageBuilderCacheCollectionFactory = $modelPageBuilderCacheCollectionFactory;
+    	$this->cache_db = ['CONTENT_TYPE_staticmenu','CONTENT_TYPE_newsletter','CONTENT_TYPE_button-item','CONTENT_TYPE_staticmenu-item','CONTENT_TYPE_iconbox','CONTENT_TYPE_blog_posts','CONTENT_TYPE_column-group','CONTENT_TYPE_instagram','CONTENT_TYPE_video','CONTENT_TYPE_heading','CONTENT_TYPE_tabs','CONTENT_TYPE_products','CONTENT_TYPE_tab-item','CONTENT_TYPE_category_thumbnail_image','CONTENT_TYPE_testimonial','CONTENT_TYPE_buttons','CONTENT_TYPE_product_advanced','CONTENT_TYPE_slider','CONTENT_TYPE_divider','CONTENT_TYPE_map','CONTENT_TYPE_gallery','CONTENT_TYPE_faq','CONTENT_TYPE_html','CONTENT_TYPE_productcountdowntimers','CONTENT_TYPE_daily_deal','CONTENT_TYPE_root-container','WIDGET_BREAKPOINS'];
+        $this->_modelPageBuilderCache = \Magento\Framework\App\ObjectManager::getInstance()->get(\Blueskytechco\PageBuilderCustom\Model\BlueskytechcoPageBuilderCacheFactory::class);
+        $this->_modelPageBuilderCacheCollectionFactory = \Magento\Framework\App\ObjectManager::getInstance()->get(\Blueskytechco\PageBuilderCustom\Model\ResourceModel\BlueskytechcoPageBuilderCache\CollectionFactory::class);
         $this->config = $config;
         $this->uiComponentConfig = $uiComponentConfig;
         $this->urlBuilder = $urlBuilder;
@@ -358,7 +357,7 @@ class Config extends \Magento\PageBuilder\Model\Stage\Config
         }
         $cache_item_in_database = $this->_modelPageBuilderCacheCollectionFactory->create()->addFieldToFilter('cache_identifier', $cacheIdentifier)->setPageSize(1)->getFirstItem();
         if($cache_item_in_database && $cache_item_in_database->getSerializeData() && $cache_item_in_database->getSerializeData() != ''){
-        	return $this->serializer->unserialize($cache_item_in_database->getSerializeData());
+            return $this->serializer->unserialize($cache_item_in_database->getSerializeData());
         }
         $serializedData = $this->cache->load($cacheIdentifier);
         $cache = $serializedData

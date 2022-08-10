@@ -3,6 +3,8 @@
 [![Total Downloads](https://poser.pugx.org/magefan/module-community/downloads)](https://packagist.org/packages/magefan/module-community)
 [![Latest Stable Version](https://poser.pugx.org/magefan/module-community/v/stable)](https://packagist.org/packages/magefan/module-community)
 
+<img width="150" height="100" src="https://magefan.com/media/wysiwyg/made_in_ukraine.jpg">
+
 This module is required for other Magefan extensions for Magento 2
 
 ## Requirements
@@ -41,7 +43,7 @@ then if you still need help, open a bug report in GitHub's
 ## License
 The code is licensed under [EULA](https://magefan.com/end-user-license-agreement).
 
-## Other [Magento 2 Extensions](https://magefan.com/magento2-extensions) by Magefan
+## Other [Magento 2 Extensions](https://magefan.com/magento-2-extensions) by Magefan
   * [Magento 2 Blog Extension](https://magefan.com/magento2-blog-extension)
   * [Magento 2 Blog Plus Extension](https://magefan.com/magento2-blog-extension/pricing)
   * [Magento 2 Blog Extra Extension](https://magefan.com/magento2-blog-extension/pricing)
@@ -76,3 +78,7 @@ The code is licensed under [EULA](https://magefan.com/end-user-license-agreement
   * [Better Magento 2 Checkout Extension](https://magefan.com/better-magento-2-checkout-extension)
   * [Magento 2 AMP Blog Extension](https://magefan.com/magento-2-amp-blog-extension)
   * [Magento 2 Coupon Code Link](https://magefan.com/magento-2-coupon-code-link)
+  * [Magento 2 SEO Extension](https://magefan.com/magento-2-seo-extension)
+  * [Magento 2 Rich Snippets Extension](https://magefan.com/magento-2-rich-snippets)
+  * [Magento 2 HTML Sitemap Extension](https://magefan.com/magento-2-html-sitemap-extension)
+  * [Magento 2 SEO Suite Ultimate Extension](https://magefan.com/magento-2-seo-suite-ultimate-extension)

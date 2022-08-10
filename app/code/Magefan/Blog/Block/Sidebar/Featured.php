@@ -6,6 +6,8 @@
  * Glory to Ukraine! Glory to the heroes!
  */
 
+declare(strict_types=1);
+
 namespace Magefan\Blog\Block\Sidebar;
 
 /**
@@ -54,7 +56,7 @@ class Featured extends \Magefan\Blog\Block\Post\PostList\AbstractList
      */
     protected function getPostIdsConfigValue()
     {
-        return $this->_scopeConfig->getValue(
+        return (string)$this->_scopeConfig->getValue(
             'mfblog/sidebar/'.$this->_widgetKey.'/posts_ids',
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE
         );

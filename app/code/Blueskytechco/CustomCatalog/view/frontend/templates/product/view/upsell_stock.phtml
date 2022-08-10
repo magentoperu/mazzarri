@@ -14,7 +14,7 @@
 $type = $_product->getTypeId();
 $toDate = time();
 $fromDate = $_product->getData('end_date_in_stock');
-if (strtotime($fromDate) >= $toDate && ($type == 'simple' || $type == 'virtual')) {
+if ($fromDate && $fromDate != '' && strtotime($fromDate) >= $toDate && ($type == 'simple' || $type == 'virtual')) {
 	$qty = $view_model->getStockQty($_product->getId());
     $sale_qty = $view_model->getProductSalableQuantity($_product);
     if ($sale_qty && $sale_qty > 0) {

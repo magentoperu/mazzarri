@@ -117,7 +117,12 @@ class Export extends \Magento\Backend\App\Action
                         }
 
                         $element_item_meta = $dom->createElement($key);
-                        $content_item_meta = $dom->createCDATASection($value_meta);
+                        if($value_meta){
+                            $content_item_meta = $dom->createCDATASection($value_meta);
+                        }
+                        else{
+                            $content_item_meta = $dom->createCDATASection('');
+                        }
                         $element_item_meta->appendChild($content_item_meta);
                         $item_meta->appendChild($element_item_meta);
                     }
